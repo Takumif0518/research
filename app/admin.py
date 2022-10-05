@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import QUEST,IO
 
-# Register your models here.
+admin.site.register(QUEST)
+admin.site.register(IO)
+

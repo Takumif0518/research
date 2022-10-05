@@ -1,0 +1,20 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'home'%}" method="post">
+{% csrf_token %}
+{% for test in question.io_set.all %}
+    <label>
+        <label>
+            <h3>入力例{{forloop.counter}}</h3>
+            <h4>{{ test.input_text }}</h4>
+        </label>
+        <label>
+            <h3>出力例{{forloop.counter}}</h3>
+            <h4>{{ test.output_text }}</h4>
+        </label>
+    </label>
+{% endfor %}
+<input type="submit" value="問題を解く" />
+</form>

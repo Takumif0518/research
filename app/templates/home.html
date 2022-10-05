@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action='' method="POST">
+  <div id="all">
+    <div id="left">
+        <h1>問題文</h1>
+        <h3>　問題文の表示</h3>
+        <label>
+            <label>入力例1<br>　OOOOO</label><br/>
+            <label>出力例1<br>　XXXXX</label><br/>
+            <label>入力例2<br>　OOOOO</label><br/>
+            <label>出力例2<br>　XXXXX</label><br/>
+            <label>入力例3<br>　OOOOO</label><br/>
+            <label>出力例3<br>　XXXXX</label><br/>
+        </label>
+    </div>
+    <div id="center">
+        <!-- コード入力エリア -->
+        <div id="editor">
+            {{ form.code }}
+            <div id="code" class="h-100"></div>
+        </div>
+        <div id="commandline">
+            <h3>引数の入力<h3>
+            <button type="submit" class="btn btn-warning">実行</button>
+        </div>
+        <!-- 出力表示エリア -->
+        <div id="output" class="bg-inverse">
+            <pre class="text-white">{{ output }}</pre>
+             {% csrf_token %}
+        </div>   
+    </div>
+    <div id="right">
+        <h1>正誤判定</h1>
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

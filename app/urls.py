@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import IndexView
+from . import views
 
 urlpatterns = [
-    path('', IndexView.as_view()),
+    path('', views.chice , name="chice"),
+    path('<int:question_id>/detail/', views.detail, name='detail'),
+    path('home/', views.Home.as_view(), name='home'),
 ]
+
