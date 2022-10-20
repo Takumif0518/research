@@ -11,7 +11,7 @@ file_dir = os.path.join(settings.BASE_DIR, 'history') #パスの統合(プログ
 docker_cmd = 'docker run -i --rm --name my-running-script -v {}:/usr/src/myapp -w /usr/src/myapp python:3.7 python {}' #{}は置換フィールド29行目format()で置換
 
 
-def chice(request):
+def choice(request):
     question_list = QUEST.objects.order_by('question_id')
     context = {'question_list': question_list}
     return render(request, 'choice.html', context)
@@ -54,3 +54,4 @@ def start_docker(code):
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT  #stdout:標準出力 stderr:標準エラー
         )
     return ret.stdout.decode()
+
